@@ -53,10 +53,10 @@ ERE-like capabilities to BRE.
 The GNU regex implementation also has an alternate API which can be used instead
 of the POSIX API. This alternate API is not supported by musl at all.
 
-Finally, glibc's regex uses a 32-bit `regoff_t` even on 64-bit archs. This is
+Finally, glibc before XXX always used a 32-bit `regoff_t` on all architectures.
+This is
 non-conforming to POSIX and precludes giving correct output for strings larger
-than 2GB. musl uses a correct type, but this renders the ABI of the regex
-functions incompatible on 64-bit archs. The ABI is compatible on 32-bit.
+than 2GB. musl always used a correct type.
 
 # Re-entrancy of exit
 
